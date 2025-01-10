@@ -1,4 +1,4 @@
-# i3wm-config
+## i3wm-config
 Install i3 window manager
 ```
 sudo apt install i3
@@ -23,6 +23,12 @@ and then create a symlink to the layout_manager.sh script
 ln -s /absolute/pathof/layout_manager.sh /usr/bin/layout_manager
 ```
 
+Keyboard shortcuts:\
+`Alt+Shift+l` -> open layout_manager\
+`Alt+d` -> open rofi application search\
+`Alt+Shift+<` move window left\
+`Alt+Shift+>` move window right\
+`Alt+[number]` switch to numbered window\
 
 ## To install ZSH and Oh-My-ZSH
 run
