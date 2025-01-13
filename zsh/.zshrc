@@ -1,58 +1,43 @@
 RAINBOW=(
-  "$(printf '\033[38;2;255;0;0m')"
-  "$(printf '\033[38;2;255;97;0m')"
-  "$(printf '\033[38;2;247;255;0m')"
-  "$(printf '\033[38;2;0;255;30m')"
-  "$(printf '\033[38;2;77;0;255m')"
-  "$(printf '\033[38;2;168;0;255m')"
-  "$(printf '\033[38;2;245;0;172m')"
+  "$(printf '\033[38;2;255;0;0m')"      # Red
+  "$(printf '\033[38;2;255;64;0m')"     # Red-Orange
+  "$(printf '\033[38;2;255;128;0m')"    # Orange
+  "$(printf '\033[38;2;255;191;0m')"    # Yellow-Orange
+  "$(printf '\033[38;2;255;255;0m')"    # Yellow
+  "$(printf '\033[38;2;128;255;0m')"    # Yellow-Green
+  "$(printf '\033[38;2;0;255;0m')"      # Green
+  "$(printf '\033[38;2;0;255;128m')"    # Green-Cyan
+  "$(printf '\033[38;2;0;255;255m')"    # Cyan
+  "$(printf '\033[38;2;0;128;255m')"    # Cyan-Blue
+  "$(printf '\033[38;2;0;0;255m')"      # Blue
+  "$(printf '\033[38;2;94;0;255m')"     # Blue-Indigo
+  "$(printf '\033[38;2;148;0;255m')"    # Indigo
+  "$(printf '\033[38;2;201;0;255m')"    # Indigo-Violet
+  "$(printf '\033[38;2;255;0;255m')"    # Violet
+  "$(printf '\033[38;2;255;0;191m')"    # Magenta-Pink
+  "$(printf '\033[38;2;255;0;128m')"    # Pink
+  "$(printf '\033[38;2;255;0;64m')"     # Red-Pink
 )
-
-# RAINBOW=(
-#   "$(printf '\033[38;2;255;0;0m')"      # Red
-#   "$(printf '\033[38;2;255;64;0m')"     # Red-Orange
-#   "$(printf '\033[38;2;255;128;0m')"    # Orange
-#   "$(printf '\033[38;2;255;191;0m')"    # Yellow-Orange
-#   "$(printf '\033[38;2;255;255;0m')"    # Yellow
-#   "$(printf '\033[38;2;128;255;0m')"    # Yellow-Green
-#   "$(printf '\033[38;2;0;255;0m')"      # Green
-#   "$(printf '\033[38;2;0;255;128m')"    # Green-Cyan
-#   "$(printf '\033[38;2;0;255;255m')"    # Cyan
-#   "$(printf '\033[38;2;0;128;255m')"    # Cyan-Blue
-#   "$(printf '\033[38;2;0;0;255m')"      # Blue
-#   "$(printf '\033[38;2;64;0;255m')"     # Blue-Indigo
-#   "$(printf '\033[38;2;128;0;255m')"    # Indigo
-#   "$(printf '\033[38;2;191;0;255m')"    # Indigo-Violet
-#   "$(printf '\033[38;2;255;0;255m')"    # Violet
-#   "$(printf '\033[38;2;255;0;191m')"    # Magenta-Pink
-#   "$(printf '\033[38;2;255;0;128m')"    # Pink
-#   "$(printf '\033[38;2;255;0;64m')"     # Red-Pink
-# )
 
 
 RESET=$(printf '\033[0m')
 
-printf '%s         %s__      %s           %s        %s       %s     %s__   %s\n'      $RAINBOW $RESET
-printf '%s  ____  %s/ /_    %s ____ ___  %s__  __  %s ____  %s_____%s/ /_  %s\n'      $RAINBOW $RESET
-printf '%s / __ \\%s/ __ \\  %s / __ `__ \\%s/ / / / %s /_  / %s/ ___/%s __ \\ %s\n'  $RAINBOW $RESET
-printf '%s/ /_/ /%s / / / %s / / / / / /%s /_/ / %s   / /_%s(__  )%s / / / %s\n'      $RAINBOW $RESET
-printf '%s\\____/%s_/ /_/ %s /_/ /_/ /_/%s\\__, / %s   /___/%s____/%s_/ /_/  %s\n'    $RAINBOW $RESET
-printf '%s    %s        %s           %s /____/ %s       %s     %s          %s\n'      $RAINBOW $RESET
+printf '%s _       __%s    %s __%s     %s    %s              %s     %s ____%s       %s      %s__%s       %s ____%s      %s        %s_  %s    %s__%s\n'  $RAINBOW $RESET 
+printf '%s| |     / /%s__  %s/ /%s____%s____ %s ____ ___  %s___     %s/ __ )%s____ _%s_____%s/ /__%s     %s/ __ \\%s____ _%s____  %s(_)%s__  %s/ /%s\n'  $RAINBOW $RESET 
+printf '%s| | /| / /%s _ \\%s/ /%s ___/%s __ \\%s/ __ `__ \\%s/ _ \\   %s/ __  /%s __ `/%s ___/%s //_/%s    %s/ / / /%s __ `/%s __ \\%s/ /%s _ \\%s/ / %s\n'  $RAINBOW $RESET  
+printf '%s| |/ |/ /%s  __/%s /%s /__%s/ /_/ /%s / / / / /%s  __/  %s/ /_/ /%s /_/ /%s /__%s/ ,<%s _    %s/ /_/ /%s /_/ / / /%s /%s /%s  __/ %s/  %s\n'  $RAINBOW $RESET   
+printf '%s|__/|__/%s\\___/%s_/%s\\___/%s\\____/%s_/ /_/ /_/%s\\___/  %s/_____/%s\\__,_/%s\\___/%s_/|_%s( )  %s/_____/%s\\__,_/%s_/ /_/%s_/%s\\___/%s_/  %s \n'  $RAINBOW $RESET    
+printf '%s       %s      %s  %s      %s       %s          %s         %s      %s       %s  %s   %s|/         %s      %s       %s  %s    %s   %s   %s\n'  $RAINBOW $RESET    
 printf '\n'
-
-printf '%s _       __%s    %s __%s     %s    %s              %s     %s ____             __        ____              _      __\n'  $RAINBOW $RESET 
-printf '%s| |     / /%s__  %s/ /%s_____%s___ %s ____ ___  ___%s     %s/ __ )____ ______/ /__     / __ \\____ _____  (_)__  / /\n'  $RAINBOW $RESET 
-printf '%s| | /| / /%s _ \\%s/ /%s ___/%s __ \\%s/ __ `__ \\%s/ _ \\   %s/ __  / __ `/ ___/ //_/    / / / / __ `/ __ \\/ / _ \\/ / \n'  $RAINBOW $RESET  
-printf '%s| |/ |/ /%s  __/%s / /%s__/ %s/_/ / /%s / / / /  __/%s  / %s/_/ / /_/ / /__/ ,< _    / /_/ / /_/ / / / / /  __/ /  \n'  $RAINBOW $RESET   
-printf '%s|__/|__/%s\\___/%s_/%s\\___/%s\\____/%s_/ /_/ /_/%s\\___/  %s/_____/\\__,_/\\___/_/|_( )  /_____/\\__,_/_/ /_/_/\\___/_/   \n'  $RAINBOW $RESET    
-printf '%s       %s      %s  %s      %s       %s          %s         %s                  |/                                  \n'  $RAINBOW $RESET    
-printf '\n'
+printf 'You are in the host: %s - %s\n\n' $(hostname) $(hostname --ip-address)
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+export PATH="$HOME/.local/kitty.app/bin:$PATH"
+export TERMINAL=kitty
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time Oh My Zsh is loaded, in which case,
