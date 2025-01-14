@@ -46,3 +46,12 @@ curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
 
 Then input `Ctrl+Shift+F2` to open config manager. Inside config manager, use the vim commands fo to unfold each block.
 Using the reference at `https://sw.kovidgoyal.net/kitty/conf/#opt-kitty.background_image` adjust `background_image`, `background_image_layout`, and `background_tint` to your specifications. Using `Ctrl+Shift+F5` reloads the configuration
+
+## Install Tmux-Sessionizer (TMS)
+First you need to install Rust and Cargo
+```
+curl https://sh.rustup.rs -sSf | sh
+source ~/.cargo/env
+```
+then you need to install TMS with `cargo install tmux-sessionizer`
+
