@@ -194,3 +194,7 @@ bar {
 	mode hide
 	modifier Mod1
 }
+
+# Set randr monitor layout automatically
+exec_always --no-startup-id ~/.screenlayout/mainLayout.sh
+
