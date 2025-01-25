@@ -79,6 +79,11 @@ _G.packer_plugins = {
     path = "/home/mstudxk5/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
+  ["eslint.nvim"] = {
+    loaded = true,
+    path = "/home/mstudxk5/.local/share/nvim/site/pack/packer/start/eslint.nvim",
+    url = "https://github.com/MunifTanjim/eslint.nvim"
+  },
   ["gruvbox.nvim"] = {
     loaded = true,
     path = "/home/mstudxk5/.local/share/nvim/site/pack/packer/start/gruvbox.nvim",
@@ -99,13 +104,18 @@ _G.packer_plugins = {
     path = "/home/mstudxk5/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
+  ["null-ls.nvim"] = {
+    loaded = true,
+    path = "/home/mstudxk5/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
+    url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
+  },
   ["nvim-cmp"] = {
     loaded = true,
     path = "/home/mstudxk5/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
   },
   ["nvim-lspconfig"] = {
-    config = { "\27LJ\2\n‡\3\0\0\n\0\24\0\0296\0\0\0'\2\1\0B\0\2\0029\0\2\0009\0\3\0005\2\22\0005\3\20\0005\4\5\0005\5\4\0=\5\6\0045\5\b\0005\6\a\0=\6\t\5=\5\n\0045\5\15\0006\6\v\0009\6\f\0069\6\r\6'\b\14\0+\t\2\0B\6\3\2=\6\16\5=\5\17\0045\5\18\0=\5\19\4=\4\21\3=\3\23\2B\0\2\1K\0\1\0\rsettings\1\0\1\rsettings\0\bLua\1\0\1\bLua\0\14telemetry\1\0\1\venable\1\14workspace\flibrary\1\0\1\flibrary\0\5\26nvim_get_runtime_file\bapi\bvim\16diagnostics\fglobals\1\0\1\fglobals\0\1\3\0\0\bvim\frequire\fruntime\1\0\4\14workspace\0\16diagnostics\0\14telemetry\0\fruntime\0\1\0\1\fversion\vLuaJIT\nsetup\vlua_ls\14lspconfig\frequire\0" },
+    config = { "\27LJ\2\n‡\3\0\0\n\0\24\0\0296\0\0\0'\2\1\0B\0\2\0029\0\2\0009\0\3\0005\2\22\0005\3\20\0005\4\5\0005\5\4\0=\5\6\0045\5\b\0005\6\a\0=\6\t\5=\5\n\0045\5\15\0006\6\v\0009\6\f\0069\6\r\6'\b\14\0+\t\2\0B\6\3\2=\6\16\5=\5\17\0045\5\18\0=\5\19\4=\4\21\3=\3\23\2B\0\2\1K\0\1\0\rsettings\1\0\1\rsettings\0\bLua\1\0\1\bLua\0\14telemetry\1\0\1\venable\1\14workspace\flibrary\1\0\1\flibrary\0\5\26nvim_get_runtime_file\bapi\bvim\16diagnostics\fglobals\1\0\1\fglobals\0\1\3\0\0\bvim\frequire\fruntime\1\0\4\16diagnostics\0\14workspace\0\fruntime\0\14telemetry\0\1\0\1\fversion\vLuaJIT\nsetup\vlua_ls\14lspconfig\frequire\0" },
     loaded = true,
     path = "/home/mstudxk5/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
@@ -150,7 +160,7 @@ _G.packer_plugins = {
 time([[Defining packer_plugins]], false)
 -- Config for: nvim-lspconfig
 time([[Config for nvim-lspconfig]], true)
-try_loadstring("\27LJ\2\n‡\3\0\0\n\0\24\0\0296\0\0\0'\2\1\0B\0\2\0029\0\2\0009\0\3\0005\2\22\0005\3\20\0005\4\5\0005\5\4\0=\5\6\0045\5\b\0005\6\a\0=\6\t\5=\5\n\0045\5\15\0006\6\v\0009\6\f\0069\6\r\6'\b\14\0+\t\2\0B\6\3\2=\6\16\5=\5\17\0045\5\18\0=\5\19\4=\4\21\3=\3\23\2B\0\2\1K\0\1\0\rsettings\1\0\1\rsettings\0\bLua\1\0\1\bLua\0\14telemetry\1\0\1\venable\1\14workspace\flibrary\1\0\1\flibrary\0\5\26nvim_get_runtime_file\bapi\bvim\16diagnostics\fglobals\1\0\1\fglobals\0\1\3\0\0\bvim\frequire\fruntime\1\0\4\14workspace\0\16diagnostics\0\14telemetry\0\fruntime\0\1\0\1\fversion\vLuaJIT\nsetup\vlua_ls\14lspconfig\frequire\0", "config", "nvim-lspconfig")
+try_loadstring("\27LJ\2\n‡\3\0\0\n\0\24\0\0296\0\0\0'\2\1\0B\0\2\0029\0\2\0009\0\3\0005\2\22\0005\3\20\0005\4\5\0005\5\4\0=\5\6\0045\5\b\0005\6\a\0=\6\t\5=\5\n\0045\5\15\0006\6\v\0009\6\f\0069\6\r\6'\b\14\0+\t\2\0B\6\3\2=\6\16\5=\5\17\0045\5\18\0=\5\19\4=\4\21\3=\3\23\2B\0\2\1K\0\1\0\rsettings\1\0\1\rsettings\0\bLua\1\0\1\bLua\0\14telemetry\1\0\1\venable\1\14workspace\flibrary\1\0\1\flibrary\0\5\26nvim_get_runtime_file\bapi\bvim\16diagnostics\fglobals\1\0\1\fglobals\0\1\3\0\0\bvim\frequire\fruntime\1\0\4\16diagnostics\0\14workspace\0\fruntime\0\14telemetry\0\1\0\1\fversion\vLuaJIT\nsetup\vlua_ls\14lspconfig\frequire\0", "config", "nvim-lspconfig")
 time([[Config for nvim-lspconfig]], false)
 
 _G._packer.inside_compile = false

@@ -59,6 +59,33 @@ require('lspconfig').lua_ls.setup({
 require('lspconfig').pyright.setup({})
 require('lspconfig').clangd.setup({})
 
+local lspconfig = require('lspconfig')
+
+-- Function to determine the root directory
+local function get_root_dir(startpath)
+    return vim.fs.dirname(vim.fs.find({ ".git", "eslint.config.js", "package.json" }, { path = startpath, upward = true })[1])
+end
+
+lspconfig.eslint.setup({
+    cmd = { "/home/mstudxk5/.local/share/nvim/mason/bin/vscode-eslint-language-server", "--stdio" },
+    root_dir = function(startpath)
+        return get_root_dir(startpath)
+    end,
+    settings = {
+        validate = { "javascript", "javascriptreact" },
+        workingDirectory = { mode = "auto" },
+    },
+    on_attach = function(client, bufnr)
+        -- Optional: Enable EslintFixAll on save
+        vim.api.nvim_create_autocmd("BufWritePre", {
+            buffer = bufnr,
+            command = "EslintFixAll",
+        })
+    end,
+})
+
+
+
 
 local cmp = require('cmp')
 
