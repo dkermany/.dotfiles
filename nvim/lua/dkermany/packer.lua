@@ -45,13 +45,16 @@ return require('packer').startup(function(use)
             local cmp = require("cmp")
             cmp.setup({
                 preselect = cmp.PreselectMode.Item,
+                confirmation = {
+                    completeopt = 'menu,menuone,noinsert'  -- (or add ,noselect if needed)
+                },
                 mapping = {
                     ["<C-y>"] = cmp.mapping(function(fallback)
                         if cmp.visible() then
-                            if not cmp.get_selected_entry() then
-                                cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
-                            end
-                            cmp.confirm({ select = true })
+                            vim.defer_fn(function()
+                                cmp.select_next_item()
+                                cmp.confirm({ select = true })
+                            end, 100)  -- 100ms delay; adjust as needed
                         else
                             fallback()
                         end
@@ -59,7 +62,12 @@ return require('packer').startup(function(use)
                 },
                 sources = {
                     { name = "nvim_lsp", keyword_length = 1 },
-                    { name = "buffer", keywork_length = 3 },
+                    { name = "buffer", keyword_length = 3 },
+                },
+                snippet = {
+                    expand = function(args)
+                        return args.body
+                    end,
                 }
             })
         end

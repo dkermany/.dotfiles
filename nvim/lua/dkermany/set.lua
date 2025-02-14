@@ -44,7 +44,7 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
 
-vim.opt.completeopt= { "menu", "menuone" }
+vim.opt.completeopt= { "menu", "menuone", "noinsert" }
 
 vim.opt.colorcolumn = "80"
 
