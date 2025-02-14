@@ -43,6 +43,9 @@ vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "80"
 
+
+
+
 -- Ensure the highlight is set after the colorscheme
 vim.api.nvim_create_autocmd("ColorScheme", {
     callback = function()

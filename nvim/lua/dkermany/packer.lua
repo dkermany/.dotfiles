@@ -48,4 +48,14 @@ return require('packer').startup(function(use)
     use({"williamboman/mason.nvim"})
     use({"williamboman/mason-lspconfig.nvim"})
 
+    use({"Vimjas/vim-python-pep8-indent"})
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "python",
+    callback = function()
+        vim.opt_local.smartindent = false
+        vim.opt_local.autoindent = true
+    end,
+})
+
+
 end)

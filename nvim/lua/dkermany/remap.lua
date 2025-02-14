@@ -17,6 +17,13 @@ vim.keymap.set("x", "<leader>p", [["_dP]])
 vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
+-- Yank into a custom register for sharing
+vim.keymap.set({"n", "v"}, "y", '"zy', { noremap = true, silent = true })
+vim.keymap.set({"n", "v"}, "d", '"zd', { noremap = true, silent = true })
+
+-- Paste from the shared register
+vim.keymap.set("n", "p", '"zp', { noremap = true, silent = true })
+
 vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
 
 -- This is going to get me cancelled
@@ -40,3 +47,6 @@ vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>");
 vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
 end)
+
+vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { silent = true })
+
