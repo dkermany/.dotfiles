@@ -1,6 +1,9 @@
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
+vim.opt.rtp:prepend(vim.fn.stdpath("data") .. "/site/pack/packer/start/vim-python-pep8-indent")
+vim.cmd("filetype plugin indent on")
+
 local function set_tab_width_for_filetype()
     local ft = vim.bo.filetype
     if ft == "javascript" or ft == "javascriptreact" or ft == "css" or ft == "html" then
@@ -41,10 +44,9 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
 
+vim.opt.completeopt= { "menu", "menuone" }
+
 vim.opt.colorcolumn = "80"
-
-
-
 
 -- Ensure the highlight is set after the colorscheme
 vim.api.nvim_create_autocmd("ColorScheme", {

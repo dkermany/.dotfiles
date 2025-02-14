@@ -39,7 +39,32 @@ return require('packer').startup(function(use)
             })
         end
     }
-    use({'hrsh7th/nvim-cmp'})
+    use({
+        'hrsh7th/nvim-cmp',
+        config = function ()
+            local cmp = require("cmp")
+            cmp.setup({
+                preselect = cmp.PreselectMode.Item,
+                mapping = {
+                    ["<C-y>"] = cmp.mapping(function(fallback)
+                        if cmp.visible() then
+                            if not cmp.get_selected_entry() then
+                                cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+                            end
+                            cmp.confirm({ select = true })
+                        else
+                            fallback()
+                        end
+                    end, { "i", "s" }),
+                },
+                sources = {
+                    { name = "nvim_lsp", keyword_length = 1 },
+                    { name = "buffer", keywork_length = 3 },
+                }
+            })
+        end
+
+    })
     use({'hrsh7th/cmp-nvim-lsp'})
 
     use({'jose-elias-alvarez/null-ls.nvim'})
@@ -49,13 +74,14 @@ return require('packer').startup(function(use)
     use({"williamboman/mason-lspconfig.nvim"})
 
     use({"Vimjas/vim-python-pep8-indent"})
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = "python",
-    callback = function()
-        vim.opt_local.smartindent = false
-        vim.opt_local.autoindent = true
-    end,
-})
+
+    --vim.api.nvim_create_autocmd("FileType", {
+    --    pattern = "python",
+    --    callback = function()
+    --        vim.opt_local.smartindent = false
+    --        vim.opt_local.autoindent = true
+    --    end,
+    --})
 
 
 end)
