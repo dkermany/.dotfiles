@@ -45,31 +45,22 @@ return require('packer').startup(function(use)
             local cmp = require("cmp")
             cmp.setup({
                 preselect = cmp.PreselectMode.Item,
-                confirmation = {
-                    completeopt = 'menu,menuone,noinsert'  -- (or add ,noselect if needed)
+                completion = {
+                    completeopt = "menu,menuone,noinsert",
                 },
                 mapping = {
-                    ["<C-y>"] = cmp.mapping(function(fallback)
+                    ["<Cr>"] = cmp.mapping.confirm({ select = true }),
+                    ['<C-Space>'] = cmp.mapping(function(fallback)
                         if cmp.visible() then
-                            vim.defer_fn(function()
-                                cmp.select_next_item()
-                                cmp.confirm({ select = true })
-                            end, 100)  -- 100ms delay; adjust as needed
+                            cmp.close()
                         else
-                            fallback()
+                            cmp.complete()
                         end
-                    end, { "i", "s" }),
-                },
-                sources = {
-                    { name = "nvim_lsp", keyword_length = 1 },
-                    { name = "buffer", keyword_length = 3 },
-                },
-                snippet = {
-                    expand = function(args)
-                        return args.body
-                    end,
+                    end, { 'i', 'c' }),
                 }
             })
+            vim.cmd("highlight CmpItemSel guibg=#3e4452 guifg=#ffffff")
+
         end
 
     })
@@ -82,14 +73,5 @@ return require('packer').startup(function(use)
     use({"williamboman/mason-lspconfig.nvim"})
 
     use({"Vimjas/vim-python-pep8-indent"})
-
-    --vim.api.nvim_create_autocmd("FileType", {
-    --    pattern = "python",
-    --    callback = function()
-    --        vim.opt_local.smartindent = false
-    --        vim.opt_local.autoindent = true
-    --    end,
-    --})
-
 
 end)
