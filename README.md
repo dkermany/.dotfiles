@@ -49,9 +49,15 @@ Using the reference at `https://sw.kovidgoyal.net/kitty/conf/#opt-kitty.backgrou
 
 ## Install Tmux
 
+Download .tar.gz file for latest [tmux release](https://github.com/tmux/tmux/releases)
 ```
-sudo apt install tmux
+sudo apt install libncurses-dev bison libevent-dev
+tar -xvzf [tmux_name].tar.gz
+cd [tmux_name]
+./configure
+make && sudo make install
 ```
+
 then copy .tmux.conf to ~/
 Install [TPM](https://github.com/tmux-plugins/tpm)
 
