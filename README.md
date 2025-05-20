@@ -47,11 +47,27 @@ curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
 Then input `Ctrl+Shift+F2` to open config manager. Inside config manager, use the vim commands fo to unfold each block.
 Using the reference at `https://sw.kovidgoyal.net/kitty/conf/#opt-kitty.background_image` adjust `background_image`, `background_image_layout`, and `background_tint` to your specifications. Using `Ctrl+Shift+F5` reloads the configuration
 
-## Install Tmux-Sessionizer (TMS)
-First you need to install Rust and Cargo
+## Install NeoVIM
 ```
-curl https://sh.rustup.rs -sSf | sh
-source ~/.cargo/env
+sudo apt install neovim
 ```
-then you need to install TMS with `cargo install tmux-sessionizer`
+Then inside nvim, run :PackerSync, then :so 
+
+## Install Tmux
+
+Download .tar.gz file for latest [tmux release](https://github.com/tmux/tmux/releases)
+```
+sudo apt install libncurses-dev bison libevent-dev
+tar -xvzf [tmux_name].tar.gz
+cd [tmux_name]
+./configure
+make && sudo make install
+```
+
+then copy .tmux.conf to ~/
+Install [TPM](https://github.com/tmux-plugins/tpm)
+
+Then inside a tmux window, open ~/.tmux.conf with vim and run the command `prefix + I` (capital i) followed by `prefix + r` to install via TPM and reload
+
+
 
