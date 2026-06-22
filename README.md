@@ -31,12 +31,33 @@ Keyboard shortcuts:\
 `Alt+[number]` switch to numbered window\
 
 ## To install ZSH and Oh-My-ZSH
-run
-```
+
+Run:
+
+```bash
 sudo apt install zsh
+
+# Set ZSH as the default shell
+chsh -s $(which zsh)
+
+# Install Oh My Zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
-and then reboot
+
+Log out and log back in (or reboot).
+
+Verify that ZSH is your default shell:
+
+```bash
+echo $SHELL
+```
+
+Expected output:
+
+```text
+/usr/bin/zsh
+```
+
 
 ## To install Kitty
 run
@@ -48,6 +69,26 @@ Then input `Ctrl+Shift+F2` to open config manager. Inside config manager, use th
 Using the reference at `https://sw.kovidgoyal.net/kitty/conf/#opt-kitty.background_image` adjust `background_image`, `background_image_layout`, and `background_tint` to your specifications. Using `Ctrl+Shift+F5` reloads the configuration
 
 ## Install NeoVIM
+
+### Install Dependencies
+
+```bash
+sudo apt update
+
+sudo apt install \
+    git \
+    curl \
+    unzip \
+    ripgrep \
+    fd-find \
+    build-essential
+```
+
+Create an `fd` symlink for Telescope:
+
+```bash
+sudo ln -sf $(which fdfind) /usr/local/bin/fd
+```
 
 ### Download and Extract
 
@@ -91,7 +132,49 @@ Expected output:
 NVIM v0.11.x
 ```
 
-### Update Plugins
+### Install Packer
+
+```bash
+git clone --depth 1 \
+  https://github.com/wbthomason/packer.nvim \
+  ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+```
+
+### Install Configuration
+
+Copy the Neovim configuration directory:
+
+```bash
+cp -r nvim ~/.config/
+```
+
+### Important Configuration Changes
+
+`init.lua` should only contain:
+
+```lua
+require("dkermany")
+```
+
+Do not configure LSPs directly inside `init.lua`.
+
+Lua language server configuration should be handled by Mason and the LSP configuration files.
+
+Avoid hardcoded paths such as:
+
+```lua
+"/home/mstudxk5/.local/share/nvim/mason/bin/lua-language-server"
+```
+
+Use:
+
+```lua
+vim.fn.stdpath("data") .. "/mason/bin/lua-language-server"
+```
+
+or allow Mason to manage the executable automatically.
+
+### Install Plugins
 
 Launch Neovim:
 
@@ -99,12 +182,43 @@ Launch Neovim:
 nvim
 ```
 
-Then run:
+Run:
 
 ```vim
 :PackerSync
+:PackerCompile
 ```
-Then :so 
+
+Restart Neovim.
+
+### Install LSP Servers
+
+Inside Neovim:
+
+```vim
+:MasonInstall lua-language-server
+:MasonInstall pyright
+:MasonInstall clangd
+:MasonInstall eslint-lsp
+```
+
+### Verify Telescope Requirements
+
+```bash
+rg --version
+fd --version
+```
+
+### Health Checks
+
+Inside Neovim:
+
+```vim
+:checkhealth
+:checkhealth mason
+:checkhealth telescope
+```
+
 
 ## Install Tmux
 
