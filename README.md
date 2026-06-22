@@ -48,10 +48,63 @@ Then input `Ctrl+Shift+F2` to open config manager. Inside config manager, use th
 Using the reference at `https://sw.kovidgoyal.net/kitty/conf/#opt-kitty.background_image` adjust `background_image`, `background_image_layout`, and `background_tint` to your specifications. Using `Ctrl+Shift+F5` reloads the configuration
 
 ## Install NeoVIM
+
+### Download and Extract
+
+```bash
+cd /tmp
+
+wget https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
+
+tar xzf nvim-linux-x86_64.tar.gz
 ```
-sudo apt install neovim
+
+### Remove Existing Installation (Optional)
+
+```bash
+sudo rm -rf /opt/nvim
 ```
-Then inside nvim, run :PackerSync, then :so 
+
+### Install Neovim
+
+```bash
+sudo mv nvim-linux-x86_64 /opt/nvim
+```
+
+### Create a System-Wide Symlink
+
+```bash
+sudo ln -sf /opt/nvim/bin/nvim /usr/local/bin/nvim
+```
+
+### Verify Installation
+
+```bash
+which nvim
+nvim --version
+```
+
+Expected output:
+
+```text
+/usr/local/bin/nvim
+NVIM v0.11.x
+```
+
+### Update Plugins
+
+Launch Neovim:
+
+```bash
+nvim
+```
+
+Then run:
+
+```vim
+:PackerSync
+```
+Then :so 
 
 ## Install Tmux
 
