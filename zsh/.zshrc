@@ -29,7 +29,7 @@ printf '%s| |/ |/ /%s  __/%s /%s /__%s/ /_/ /%s / / / / /%s  __/  %s/ /_/ /%s /_
 printf '%s|__/|__/%s\\___/%s_/%s\\___/%s\\____/%s_/ /_/ /_/%s\\___/  %s/_____/%s\\__,_/%s\\___/%s_/|_%s( )  %s/_____/%s\\__,_/%s_/ /_/%s_/%s\\___/%s_/  %s \n'  $RAINBOW $RESET    
 printf '%s       %s      %s  %s      %s       %s          %s         %s      %s       %s  %s   %s|/         %s      %s       %s  %s    %s   %s   %s\n'  $RAINBOW $RESET    
 printf '\n'
-printf 'You are in the host: %s - %s\n\n' $(hostname) $(hostname --ip-address)
+# printf 'You are in the host: %s - %s\n\n' $(hostname) $(hostname --ip-address)
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
@@ -139,3 +139,4 @@ source $HOME/.aliases
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+export PATH="/opt/nvim/bin:$PATH"

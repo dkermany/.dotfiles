@@ -15,8 +15,11 @@ return require('packer').startup(function(use)
 
     use {'ellisonleao/gruvbox.nvim'}
 
-    use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
-    use('nvim-treesitter/playground')
+    use({
+        "nvim-treesitter/nvim-treesitter",
+        branch = "master",
+        run = ":TSUpdate",
+    })
 
     use('theprimeagen/harpoon')
     use('mbbill/undotree')
@@ -24,21 +27,25 @@ return require('packer').startup(function(use)
     use('tpope/vim-fugitive')
 
     -- LSP
-    use {
-        'neovim/nvim-lspconfig',
+    use({
+        "neovim/nvim-lspconfig",
         config = function()
-            require('lspconfig').lua_ls.setup({
+            vim.lsp.config("lua_ls", {
+                cmd = { vim.fn.stdpath("data") .. "/mason/bin/lua-language-server" },
                 settings = {
                     Lua = {
-                        runtime = { version = 'LuaJIT' },
-                        diagnostics = { globals = { 'vim', 'require' } },
+                        runtime = { version = "LuaJIT" },
+                        diagnostics = { globals = { "vim", "require" } },
                         workspace = { library = vim.api.nvim_get_runtime_file("", true) },
                         telemetry = { enable = false },
                     },
                 },
             })
-        end
-    }
+
+            vim.lsp.enable("lua_ls")
+        end,
+    })
+
     use({
         'hrsh7th/nvim-cmp',
         config = function ()
@@ -66,7 +73,7 @@ return require('packer').startup(function(use)
     })
     use({'hrsh7th/cmp-nvim-lsp'})
 
-    use({'jose-elias-alvarez/null-ls.nvim'})
+    use({'nvimtools/none-ls.nvim'})
     use({'MunifTanjim/eslint.nvim'})
 
     use({"williamboman/mason.nvim"})
